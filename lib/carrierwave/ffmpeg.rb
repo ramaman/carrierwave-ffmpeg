@@ -17,7 +17,7 @@ module CarrierWave
       tmp_path = File.join File.dirname(current_path), "audio.#{format}"
       file = movie current_path
       file.transcode tmp_path, options(format, file, opts), transcoder_options
-      # File.rename tmp_path, current_path
+      File.rename current_path, tmp_path
     end
 
     def codec format
