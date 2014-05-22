@@ -31,8 +31,14 @@ module CarrierWave
       when :ogv
         { video_codec: 'libtheora', 
           audio_codec: 'libvorbis' }
+      when :mp3
+        { audio_codec: 'libfaac'}
+      when :m4a
+        { audio_codec: 'libfaac'}
+      when :ogg
+        { audio_codec: 'libvorbis'}                    
       else
-        raise CarrierWave::ProcessingError.new("Unsupported video format. Error: #{e}")
+        raise CarrierWave::ProcessingError.new("Unsupported format. Error: #{e}")
       end
     end
 
