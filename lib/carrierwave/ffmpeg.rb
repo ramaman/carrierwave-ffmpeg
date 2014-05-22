@@ -38,7 +38,7 @@ module CarrierWave
       when :ogg
         { audio_codec: 'libvorbis'}                    
       else
-        raise CarrierWave::ProcessingError.new("Unsupported format. Error: #{e}")
+        raise CarrierWave::ProcessingError.new("Unsupported format. Error: ")
       end
     end
 
