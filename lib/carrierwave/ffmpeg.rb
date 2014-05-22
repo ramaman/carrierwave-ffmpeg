@@ -24,7 +24,7 @@ module CarrierWave
       case format
       when :mp4
         { video_codec: 'libx264',   
-          audio_codec: 'libfaac' }
+          audio_codec: 'libvorbis' }
       when :webm
         { video_codec: 'libvpx',    
           audio_codec: 'libvorbis' }
@@ -32,9 +32,9 @@ module CarrierWave
         { video_codec: 'libtheora', 
           audio_codec: 'libvorbis' }
       when :mp3
-        { audio_codec: 'libfaac'}
+        { audio_codec: 'libvorbis'}
       when :m4a
-        { audio_codec: 'libfaac'}
+        { audio_codec: 'libvorbis'}
       when :ogg
         { audio_codec: 'libvorbis'}                    
       else
