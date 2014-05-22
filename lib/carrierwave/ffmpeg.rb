@@ -14,17 +14,17 @@ module CarrierWave
     end
 
     def encode format, opts = {}
-      tmp_path = File.join File.dirname(current_path), "tmp_file.#{format}"
+      tmp_path = File.join File.dirname(current_path), "audio.#{format}"
       file = movie current_path
       file.transcode tmp_path, options(format, file, opts), transcoder_options
-      File.rename tmp_path, current_path
+      # File.rename tmp_path, current_path
     end
 
     def codec format
       case format
       when :mp4
         { video_codec: 'libx264',   
-          audio_codec: 'libvorbis' }
+          audio_codec: 'libfaac' }
       when :webm
         { video_codec: 'libvpx',    
           audio_codec: 'libvorbis' }
@@ -32,9 +32,9 @@ module CarrierWave
         { video_codec: 'libtheora', 
           audio_codec: 'libvorbis' }
       when :mp3
-        { audio_codec: 'libvorbis'}
+        { audio_codec: 'libfaac'}
       when :m4a
-        { audio_codec: 'libvorbis'}
+        { audio_codec: 'libfaac'}
       when :ogg
         { audio_codec: 'libvorbis'}                    
       else
